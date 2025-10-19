@@ -408,7 +408,7 @@ Feel free to use this code. If an asteroid wipes us out, all bets are off.
 ║             SCORECARD                  ║
 ║                                        ║
 ║   🦖 Dinosaurs:     [░░░░░░] 0%       ║
-║   📊 Data Scientists: [████████] 89%  ║
+║   📊 Data Scientists: [████████] 96%  ║
 ║                                        ║
 ║   Result: WE'RE WINNING 🏆            ║
 ║                                        ║
