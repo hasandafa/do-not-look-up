@@ -203,13 +203,13 @@ We trained **3 models** to predict asteroid threats:
 ### 1. Panic Level Classifier
 - **Algorithm:** Random Forest
 - **Task:** Classify asteroids into panic levels (0-10)
-- **Performance:** 94% accuracy, F1=0.93
+- **Performance:** 96.91% accuracy
 - **Features:** Distance, velocity, magnitude, Sentry status
 
 ### 2. Impact Probability Regressor
 - **Algorithm:** XGBoost
 - **Task:** Predict NASA's impact probability
-- **Performance:** R²=0.89, RMSE=0.12
+- **Performance:** R²=0.945
 - **Dataset:** Sentry-listed asteroids only (~2K samples)
 
 ### 3. Should I Worry Today?™
@@ -288,13 +288,6 @@ We use the **Torino Scale** (NASA's official "how scared should I be?" scale):
 - [x] Build Gradio web app (5 tabs)
 - [x] Integrate all models
 - [x] Deploy-ready code
-- [x] Professional UI/UX
-
-### Phase 5: Sharing 🚧 IN PROGRESS
-- [ ] Write Substack blog series
-- [ ] Create demo video
-- [ ] Social media launch
-- [ ] Community engagement
 
 ---
 
@@ -354,7 +347,7 @@ Found a bug? Want to add features? PRs welcome!
 ## 📚 Resources & References
 
 ### Blog & Story
-- [Building This Project](YOUR_SUBSTACK_LINK) - Behind the scenes *(coming soon)*
+- [Building This Project](https://open.substack.com/pub/hasandafa/p/the-dinosaurs-didnt-have-data-science?r=60hbad&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true) - Read here
 
 ### Dataset
 - [Kaggle Dataset](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset) - Download here
@@ -394,7 +387,7 @@ Feel free to use this code. If an asteroid wipes us out, all bets are off.
 **Abdullah Hasan Dafa**
 - GitHub: [@hasandafa](https://github.com/hasandafa)
 - Kaggle: [@hasandafa1201](https://www.kaggle.com/hasandafa1201)
-- Substack: [YOUR_SUBSTACK_LINK]
+- Substack: [[hasandafa's substack](https://hasandafa.substack.com/)]
 - Project: [github.com/hasandafa/do-not-look-up](https://github.com/hasandafa/do-not-look-up)
 
 ---
@@ -404,17 +397,17 @@ Feel free to use this code. If an asteroid wipes us out, all bets are off.
 ## 🦖 vs 📊
 
 ```
-╔═══════════════════════════════════════╗
-║                                       ║
-║        EXTINCTION PREVENTION          ║
-║             SCORECARD                 ║
-║                                       ║
-║   🦖 Dinosaurs:     [░░░░░░] 0%      ║
+╔════════════════════════════════════════╗
+║                                        ║
+║        EXTINCTION PREVENTION           ║
+║             SCORECARD                  ║
+║                                        ║
+║   🦖 Dinosaurs:     [░░░░░░] 0%       ║
 ║   📊 Data Scientists: [████████] 89%  ║
-║                                       ║
+║                                        ║
 ║   Result: WE'RE WINNING 🏆            ║
-║                                       ║
-╚═══════════════════════════════════════╝
+║                                        ║
+╚════════════════════════════════════════╝
 ```
 
 ### Current Threat Level: **CHILL** ✅
