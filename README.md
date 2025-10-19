@@ -30,7 +30,7 @@
 Created by [Abdullah Hasan Dafa](https://github.com/hasandafa) | 
 [GitHub](https://github.com/hasandafa/do-not-look-up) | 
 [Kaggle Dataset](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset) | 
-[Substack](YOUR_SUBSTACK_LINK_HERE)
+[Substack](https://open.substack.com/pub/hasandafa/p/the-dinosaurs-didnt-have-data-science?r=60hbad&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)
 
 ---
 
