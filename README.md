@@ -54,19 +54,19 @@ Think of it as your personal apocalypse calendar, but with charts and comedy.
 ## ✨ Features
 
 ### 🎯 The Panic Meter™
-Real-time threat level calculator. Select any asteroid and get an instant assessment with our proprietary panic scale (0-10). Includes comedic verdicts like "Go touch grass" and "Did you backup your data?"
+![Real-time threat level calculator. Select any asteroid and get an instant assessment with our proprietary panic scale (0-10). Includes comedic verdicts like "Go touch grass" and "Did you backup your data?"](image.png)
 
 ### 📅 Apocalypse Calendar
-Interactive heatmap showing asteroid approaches by year and month. Filter by threat level. Discover that September 2043 is particularly spicy.
+![Interactive heatmap showing asteroid approaches by year and month. Filter by threat level. Discover that September 2043 is particularly spicy.](image-1.png)
 
 ### 🌌 Doom Simulator 3D
-Visualize asteroid orbits in beautiful 3D. That tiny blue dot in the center? Yeah, that's Earth. We live there. Fully interactive - rotate, zoom, click asteroids for details.
+![Visualize asteroid orbits in beautiful 3D. That tiny blue dot in the center? Yeah, that's Earth. We live there. Fully interactive - rotate, zoom, click asteroids for details.](image-2.png)
 
 ### 🤖 Should I Worry?
-ML-powered threat assessment. Input your time horizon (1-365 days) and get a worry score (0-100) with recommendations. Uses custom algorithms combining multiple risk factors.
+![ML-powered threat assessment. Input your time horizon (1-365 days) and get a worry score (0-100) with recommendations. Uses custom algorithms combining multiple risk factors.](image-3.png)
 
 ### 🔍 The Watchlist
-Search and filter through 89,000+ asteroids. Export results to CSV. Find your favorite space rock and stalk it responsibly.
+![Search and filter through 89,000+ asteroids. Export results to CSV. Find your favorite space rock and stalk it responsibly.!](image-4.png)
 
 ---
 
