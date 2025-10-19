@@ -65,10 +65,16 @@ jupyter_notebook_config.py
 data/raw/*.json
 data/raw/*.csv
 data/raw/*.parquet
-notebooks/data/raw/
+
+# Raw data in notebooks (keep processed results, but ignore raw inputs)
+notebooks/data/
+notebooks/data/**
 notebooks/data/raw/*.json
 notebooks/data/raw/*.csv
 notebooks/data/raw/*.parquet
+
+# Keep notebooks
+!notebooks/**/*.ipynb
 
 # Processed datasets (will be on Kaggle)
 data/processed/*.csv
