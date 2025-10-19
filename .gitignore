@@ -1,0 +1,194 @@
+# Don't Look Up - .gitignore
+# Created by Abdullah Hasan Dafa (@hasandafa)
+
+# ============================================
+# Secrets & API Keys (CRITICAL - DON'T COMMIT!)
+# ============================================
+config.yaml
+.env
+*.key
+secrets/
+api_keys/
+
+# NASA API key file - NEVER commit this!
+nasa_api_key.txt
+
+# Keep the example config
+!config.yaml.example
+
+# ============================================
+# Python
+# ============================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# ============================================
+# Jupyter Notebooks
+# ============================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Jupyter Notebook config
+jupyter_notebook_config.py
+
+# ============================================
+# Data Files (too large for git)
+# ============================================
+# Raw data from APIs
+data/raw/*.json
+data/raw/*.csv
+data/raw/*.parquet
+
+# Processed datasets (will be on Kaggle)
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.pkl
+
+# Model files (usually too big)
+data/models/*.pkl
+data/models/*.h5
+data/models/*.joblib
+*.model
+
+# Keep README files in data folders
+!data/**/README.md
+!data/**/.gitkeep
+
+# ============================================
+# Logs & Temporary Files
+# ============================================
+logs/
+*.log
+temp/
+tmp/
+cache/
+.cache/
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================
+# OS Generated Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# Testing & Coverage
+# ============================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ============================================
+# Documentation Build Files
+# ============================================
+docs/_build/
+site/
+
+# ============================================
+# Gradio & Streamlit
+# ============================================
+# Gradio temporary files
+gradio_cached_examples/
+flagged/
+
+# ============================================
+# Misc
+# ============================================
+# Backup files
+*.bak
+*.backup
+*~
+
+# Compressed files (unless specifically needed)
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+
+# Database files (if any)
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Project Specific
+# ============================================
+# Screenshots for README (keep these)
+!screenshots/*.png
+!screenshots/*.jpg
+
+# Kaggle credentials
+kaggle.json
+
+# Downloaded datasets from external sources
+downloads/
+
+# Experimental notebooks
+experiments/
+scratch/
+playground/

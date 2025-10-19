@@ -83,6 +83,9 @@ cp nasa_api_key.txt.example nasa_api_key.txt
 # Set up config
 cp config.yaml.example config.yaml
 # config.yaml is already set to read from nasa_api_key.txt
+
+# Verify setup (optional but recommended)
+python scripts/verify_setup.py
 ```
 
 ### Fetch the Data

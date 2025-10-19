@@ -1,0 +1,231 @@
+# Don't Look Up: Configuration Example
+# Created by Abdullah Hasan Dafa (@hasandafa)
+#
+# SETUP INSTRUCTIONS:
+# 1. Copy this file to 'config.yaml'
+# 2. Get your NASA API key at https://api.nasa.gov/ (free, takes 30 seconds)
+# 3. Replace 'YOUR_NASA_API_KEY_HERE' with your actual key
+# 4. Adjust settings below if needed
+# 5. Run: python scripts/fetch_nasa_data.py
+
+# ============================================
+# NASA API Configuration
+# ============================================
+nasa_api:
+  # Get your free API key at: https://api.nasa.gov/
+  # Don't worry, NASA won't judge your doomsday tracking hobby
+  api_key: "YOUR_NASA_API_KEY_HERE"/or API Path
+  
+  # API Endpoints (don't change these unless NASA moves their servers)
+  endpoints:
+    neows: "https://api.nasa.gov/neo/rest/v1"
+    sentry: "https://ssd-api.jpl.nasa.gov/sentry.api"
+    close_approach: "https://ssd-api.jpl.nasa.gov/cad.api"
+  
+  # Rate limiting (be nice to NASA's servers - they're busy saving humanity)
+  rate_limit:
+    requests_per_hour: 1000
+    delay_between_requests: 0.5  # seconds between requests
+
+# ============================================
+# Data Collection Settings
+# ============================================
+data_collection:
+  # Date range for close approaches
+  # Note: 2100 is optimistic, but hey, we're hopeful
+  date_range:
+    start: "2020-01-01"
+    end: "2100-12-31"
+  
+  # Distance filters (in Astronomical Units)
+  # 1 AU = ~150 million km = Earth-Sun distance
+  distance:
+    max_au: 0.2      # Only track asteroids within 0.2 AU (still ~30M km away)
+    min_au: 0.0      # Because 0 AU means we have bigger problems than data collection
+  
+  # Size filters (in kilometers)
+  size:
+    min_diameter_km: 0.01   # Ignore space pebbles
+    max_diameter_km: 1000   # Include everything up to small planets
+  
+  # Batch settings for API requests
+  batch_size: 100     # Asteroids per request
+  max_retries: 3      # Times to retry if request fails
+
+# ============================================
+# Data Processing Settings
+# ============================================
+processing:
+  # Output formats for final dataset
+  output_formats:
+    - "parquet"  # Fast, efficient, preferred for Python
+    - "csv"      # Kaggle-friendly, universal compatibility
+    - "json"     # Just in case someone needs it
+  
+  # Feature engineering options
+  features:
+    calculate_risk_score: true      # Our custom panic calculator
+    calculate_panic_level: true     # 0-10 scale for easy understanding
+    generate_approach_timeline: true # Temporal features
+  
+  # Data quality handling
+  handle_missing: "interpolate"  # Options: "interpolate", "drop", "fill_zero"
+  remove_duplicates: true
+  validate_orbits: true          # Check for physically impossible orbits
+
+# ============================================
+# Machine Learning Configuration (Phase 2)
+# ============================================
+ml_models:
+  # Random seed for reproducibility
+  random_state: 42  # The answer to life, universe, and everything
+  
+  # Train/test split ratios
+  test_size: 0.2        # 20% for testing
+  validation_size: 0.1  # 10% for validation
+  
+  # Models to train (Phase 2)
+  models:
+    random_forest:
+      enabled: true
+      n_estimators: 100
+      max_depth: 10
+    
+    xgboost:
+      enabled: true
+      n_estimators: 100
+      learning_rate: 0.1
+    
+    custom_panic_calculator:
+      enabled: true
+      panic_threshold: 0.7  # Above this = time to worry
+
+# ============================================
+# Visualization Settings
+# ============================================
+visualization:
+  # Chart themes
+  theme: "plotly_dark"  # Because doom looks better in dark mode
+  
+  # Color scheme for risk levels
+  colors:
+    safe: "#00ff00"       # Green - you're fine
+    monitor: "#ffff00"    # Yellow - keep an eye on it
+    concern: "#ff9900"    # Orange - getting spicy
+    critical: "#ff0000"   # Red - NASA's problem now
+  
+  # 3D visualization settings (Phase 2)
+  solar_system_3d:
+    show_orbits: true
+    animate: true
+    fps: 30
+
+# ============================================
+# Gradio App Settings (Phase 2)
+# ============================================
+app:
+  # Server configuration
+  server:
+    host: "0.0.0.0"
+    port: 7860
+    share: false  # Set to true for public sharing link
+  
+  # UI settings
+  theme: "default"
+  title: "Don't Look Up: Asteroid Impact Tracker"
+  description: "Track space rocks with style and sarcasm"
+  
+  # Tabs to enable
+  tabs:
+    panic_meter: true
+    apocalypse_calendar: true
+    doom_simulator_3d: true
+    should_i_worry: true
+    watchlist: true
+  
+  # Update frequency (in seconds)
+  refresh_interval: 3600  # Refresh data every hour
+
+# ============================================
+# Humor & Personality Settings
+# ============================================
+personality:
+  # Sarcasm level (1-10, where 10 is maximum sass)
+  sarcasm_level: 7
+  
+  # Response messages for each threat level
+  responses:
+    safe: "You're fine. Go touch grass."
+    monitor: "Worth a tweet, not worth a bunker."
+    concern: "Time to learn survival skills?"
+    critical: "Did you backup your data?"
+  
+  # Easter eggs & fun features
+  enable_easter_eggs: true
+  doomsday_quotes: true
+
+# ============================================
+# Logging & Debug
+# ============================================
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/asteroid_tracker.log"
+  console_output: true
+
+# ============================================
+# Kaggle Dataset Settings
+# ============================================
+kaggle:
+  dataset_name: "asteroid-impact-tracker-nasa-data"
+  title: "Don't Look Up: NASA Asteroid Dataset (2020-2100)"
+  description: "Comprehensive asteroid close approach data with risk scoring"
+  keywords:
+    - "astronomy"
+    - "nasa"
+    - "asteroids"
+    - "near-earth-objects"
+    - "space"
+    - "machine-learning"
+    - "planetary-defense"
+    - "data-science"
+  license: "MIT"
+  
+# ============================================
+# Paths Configuration
+# ============================================
+paths:
+  data:
+    raw: "data/raw"
+    processed: "data/processed"
+    models: "data/models"
+  
+  notebooks: "notebooks"
+  scripts: "scripts"
+  app: "app"
+  logs: "logs"
+
+# ============================================
+# Author Information
+# ============================================
+author:
+  name: "Abdullah Hasan Dafa"
+  github: "hasandafa"
+  email: ""  # Optional - add if you want
+  repository: "https://github.com/hasandafa/do-not-look-up"
+  kaggle: ""  # Add your Kaggle username here
+
+# ============================================
+# Fun Facts (loaded randomly in app)
+# ============================================
+fun_facts:
+  - "There are more tracked asteroids than Starbucks locations in the US"
+  - "Apophis will pass closer than some satellites in 2029"
+  - "We've named an asteroid after Mr. Rogers. Even space needs kindness."
+  - "Asteroid 2023 NT1 was only discovered AFTER it passed Earth"
+  - "The dinosaurs didn't have NASA. We do. We're already winning."
+  - "An asteroid the size of a bus passes between Earth and Moon every day"
+  - "There are more asteroids than there are atoms in... wait, no, that's wrong"
+  - "99.9% of asteroids are just vibing in the asteroid belt, minding their business"
+  - "The largest known asteroid is Ceres, which is basically a small planet that lost its membership card"
+  - "If you're reading this, an asteroid hasn't hit Earth yet. Congrats!"
