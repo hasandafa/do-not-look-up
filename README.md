@@ -20,7 +20,7 @@
 [![Gradio](https://img.shields.io/badge/gradio-4.0+-orange.svg)](https://gradio.app/)
 [![NASA Data](https://img.shields.io/badge/data-NASA%20JPL-red.svg)](https://cneos.jpl.nasa.gov/)
 [![Kaggle Dataset](https://img.shields.io/badge/dataset-Kaggle-20BEFF.svg)](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset)
-[![ML Models](https://img.shields.io/badge/ML_accuracy-94%25-success.svg)]()
+[![ML Models](https://img.shields.io/badge/ML_accuracy-96%25-success.svg)]()
 [![Status](https://img.shields.io/badge/status-production_ready-brightgreen.svg)]()
 
 > *"Looking up is optional. The data isn't."*
