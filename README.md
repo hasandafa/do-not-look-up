@@ -5,6 +5,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Gradio](https://img.shields.io/badge/gradio-4.0+-orange.svg)](https://gradio.app/)
 [![NASA Data](https://img.shields.io/badge/data-NASA%20JPL-red.svg)](https://cneos.jpl.nasa.gov/)
+[![Kaggle Dataset](https://img.shields.io/badge/dataset-Kaggle-20BEFF.svg)](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset)
 [![Vibes](https://img.shields.io/badge/vibes-apocalyptic-purple.svg)]()
 [![Coffee Powered](https://img.shields.io/badge/powered%20by-coffee%20%26%20anxiety-brown.svg)]()
 
@@ -17,7 +18,7 @@
 Ever watched *Don't Look Up* and thought, "I wish I had a way to track actual asteroid threats while simultaneously having an existential crisis"? Well, you're in luck!
 
 This is a **data science project** that combines:
-- 📡 Real NASA asteroid data (34,000+ space rocks)
+- 📡 Real NASA asteroid data (89,000+ close approaches)
 - 🤖 Machine Learning risk predictions
 - 📊 Interactive visualizations
 - 😅 Dark humor about potential doomsday scenarios
@@ -32,7 +33,7 @@ Think of it as your personal apocalypse calendar, but with charts.
 Real-time threat level calculator that tells you if today is the day to panic. Spoiler: it's probably not.
 
 ### 📅 Apocalypse Calendar
-Interactive timeline of asteroid close approaches from 2025-2100. Mark your (potential) last days!
+Interactive timeline of asteroid close approaches from 2020-2100. Mark your (potential) last days!
 
 ### 🌌 Doom Simulator 3D
 Visualize asteroid orbits in 3D. That tiny dot is Earth. We live there.
@@ -47,13 +48,34 @@ Search and stalk specific asteroids. Learn about Apophis, Bennu, and other space
 
 ## 🗂️ Dataset
 
+### 📊 Download from Kaggle
+**[NASA Asteroid Impact Dataset (2020-2100)](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset)** 
+
+**89,227 asteroid close approaches** with custom risk scoring and official NASA data.
+
+#### Dataset Highlights:
+- ✅ **89K+ records** from NASA Close Approach Database
+- ✅ **~2K enriched** with Sentry risk assessments
+- ✅ **14 features** including distance, velocity, risk scores
+- ✅ **Custom metrics** like Panic Level (0-10) and Threat Categories
+- ✅ **Time range**: 2020-2100 (if we make it that far)
+- ✅ **100% real data** - No synthetic nonsense
+
+#### Quick Stats:
+- 📅 **Temporal Coverage**: 80+ years of asteroid approaches
+- 🌍 **Distance Range**: 0.000047 AU (really close) to 74.99 AU (chill)
+- ⚡ **Velocity Range**: 0.11 km/s to 72.44 km/s
+- 🎯 **Risk Categories**: SAFE (93.5%) | MONITOR (5.8%) | CONCERN (0.6%) | OH_NO (0.1%)
+
+---
+
+### 🔧 Or Build It Yourself
+
 This project pulls data from **3 NASA APIs**:
 
 1. **Close Approaches API** - Every asteroid flyby from 1900-2200
-2. **Sentry API** - The official "maybe panic?" list (~700 risky objects)
-3. **NeoWs API** - Detailed profiles of 34,000+ asteroids
-
-The processed dataset is available on **Kaggle**: [link coming soon]
+2. **Sentry API** - The official "maybe panic?" list (~2,000 risky objects)
+3. **NeoWs API** - Detailed profiles of 245,000+ asteroids
 
 **Fun Fact:** We're tracking more asteroids than there are Starbucks locations in the US. Priorities.
 
@@ -61,49 +83,68 @@ The processed dataset is available on **Kaggle**: [link coming soon]
 
 ## 🚀 Quick Start
 
-### Installation
+### Option 1: Use Kaggle Dataset (Recommended)
 
 ```bash
 # Clone this repository
 git clone https://github.com/hasandafa/do-not-look-up.git
 cd do-not-look-up
 
-# Install dependencies (and existential dread)
+# Install dependencies
+pip install -r requirements.txt
+
+# Download dataset from Kaggle
+# Visit: https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset
+# Place the CSV in: data/processed/
+
+# Skip to the analysis notebooks!
+jupyter notebook notebooks/03_calculating_extinction.ipynb
+```
+
+### Option 2: Fetch Fresh Data from NASA
+
+```bash
+# Clone this repository
+git clone https://github.com/hasandafa/do-not-look-up.git
+cd do-not-look-up
+
+# Install dependencies
 pip install -r requirements.txt
 
 # Set up your NASA API key
-# Option 1: Create nasa_api_key.txt (recommended)
-# Get your key from https://api.nasa.gov/ and save it in nasa_api_key.txt
+# Get your key from https://api.nasa.gov/
 echo "YOUR_API_KEY_HERE" > nasa_api_key.txt
 
-# Option 2: Copy example and edit
+# Or copy and edit the example
 cp nasa_api_key.txt.example nasa_api_key.txt
-# Then edit nasa_api_key.txt with your actual key
 
 # Set up config
 cp config.yaml.example config.yaml
-# config.yaml is already set to read from nasa_api_key.txt
 
 # Verify setup (optional but recommended)
 python scripts/verify_setup.py
-```
 
-### Fetch the Data
-
-```bash
-# Run the data collection pipeline
+# Fetch the data (this takes ~15-20 minutes)
 python scripts/fetch_nasa_data.py
 
 # Process and merge datasets
 python scripts/process_dataset.py
 ```
 
-Or explore the Jupyter notebooks:
+### Explore the Notebooks
+
 ```bash
-jupyter notebook notebooks/01_fetch_the_doom.ipynb
+jupyter notebook notebooks/
 ```
 
-### Launch the App
+**Notebook Sequence:**
+1. `01_fetch_the_doom.ipynb` - Data collection walkthrough
+2. `02_exploring_armageddon.ipynb` - EDA & risk scoring
+3. `03_calculating_extinction.ipynb` - Advanced analysis (coming soon)
+4. `04_predicting_doomsday.ipynb` - ML models (coming soon)
+5. `05_visualizing_apocalypse.ipynb` - Visualizations (coming soon)
+
+### Launch the App (Coming Soon)
 
 ```bash
 cd app
@@ -119,26 +160,35 @@ Then open your browser to `http://localhost:7860` and start tracking the apocaly
 ```
 do-not-look-up/
 ├── README.md                    # You are here
+├── QUICK_START.md              # 5-minute setup guide
 ├── requirements.txt             # Python dependencies
-├── config.yaml                  # NASA API configuration
+├── config.yaml.example          # NASA API configuration template
+├── nasa_api_key.txt.example    # API key template
+├── .gitignore                  # Keep secrets secret
+│
 ├── notebooks/                   # Jupyter notebooks
-│   ├── 01_fetch_the_doom.ipynb         # Data collection
-│   ├── 02_exploring_armageddon.ipynb   # EDA & cleaning
-│   ├── 03_calculating_extinction.ipynb # Risk analysis
-│   ├── 04_predicting_doomsday.ipynb    # ML models
-│   └── 05_visualizing_apocalypse.ipynb # Visualizations
-├── data/
+│   ├── 01_fetch_the_doom.ipynb         # Data collection ✅
+│   ├── 02_exploring_armageddon.ipynb   # EDA & cleaning ✅
+│   ├── 03_calculating_extinction.ipynb # Risk analysis 🚧
+│   ├── 04_predicting_doomsday.ipynb    # ML models 🚧
+│   └── 05_visualizing_apocalypse.ipynb # Visualizations 🚧
+│
+├── data/                        # Data files (gitignored)
 │   ├── raw/                     # Raw API responses
 │   ├── processed/               # Clean datasets
 │   └── models/                  # Trained ML models
-├── src/
-│   ├── data/                    # Data fetching modules
-│   ├── models/                  # ML model code
-│   ├── visualization/           # Plotting functions
-│   └── utils/                   # Helper functions
-├── app/
-│   └── dont_look_up.py         # Gradio web app
-└── scripts/                     # Automation scripts
+│
+├── scripts/                     # Automation scripts
+│   ├── fetch_nasa_data.py      # Data collection pipeline
+│   ├── process_dataset.py      # Data processing
+│   └── verify_setup.py         # Setup validation
+│
+├── kaggle/                      # Kaggle dataset docs
+│   ├── KAGGLE_README.md        # Dataset description
+│   └── data-dictionary.md      # Column specifications
+│
+└── app/                         # Gradio web app (coming soon)
+    └── dont_look_up.py         # Main application
 ```
 
 ---
@@ -159,17 +209,40 @@ We use the **Torino Scale** (NASA's official "how scared should I be?" scale):
 
 ---
 
-## 🤖 Machine Learning Models
+## 📈 Custom Risk Metrics
 
-We trained 3 models to predict asteroid threats:
+Our dataset includes custom-calculated metrics for easier analysis:
+
+### Risk Score (0-1 scale)
+```
+risk_score = (distance_factor × 0.4) + (velocity_factor × 0.3) + (time_factor × 0.3)
+```
+
+### Panic Level (0-10 integer)
+Scaled version of risk score for human-friendly interpretation.
+
+### Threat Categories
+- 🟢 **SAFE** - "You're fine. Go touch grass."
+- 🟡 **MONITOR** - "Worth a tweet, not worth a bunker."
+- 🟠 **CONCERN** - "Time to learn survival skills?"
+- 🔴 **OH_NO** - "Did you backup your data?"
+
+### Panic Verdicts
+Algorithmically-generated comedic commentary on each asteroid's threat level.
+
+---
+
+## 🤖 Machine Learning Models (Coming Soon)
+
+We're training 3 models to predict asteroid threats:
 
 1. **Panic Level Classifier** (Random Forest)
    - Classifies asteroids: SAFE → MONITOR → CONCERN → OH_NO
-   - Accuracy: 94% (better than my life choices)
+   - Target accuracy: >90%
 
 2. **Impact Probability Regressor** (XGBoost)
    - Predicts actual impact probability (0-1)
-   - R² Score: 0.89 (pretty solid for predicting the end times)
+   - For Sentry-listed asteroids
 
 3. **Should I Worry Today?™** (Custom Algorithm)
    - Combines multiple factors with comedic output
@@ -179,21 +252,46 @@ We trained 3 models to predict asteroid threats:
 
 ## 📸 Screenshots
 
+### Dataset Preview
+Check out the [Kaggle dataset page](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset) for interactive data exploration!
+
+### Notebooks
 [Coming soon - because we're still building this masterpiece]
 
 ---
 
 ## 🎯 Roadmap
 
+**Phase 1: Data Pipeline** ✅
 - [x] Fetch data from NASA APIs
 - [x] Clean and merge datasets
+- [x] Create custom risk scoring
 - [x] Upload to Kaggle
+- [x] Write documentation
+
+**Phase 2: Analysis & ML** 🚧
+- [ ] Advanced statistical analysis
+- [ ] Feature engineering
 - [ ] Train ML models
-- [ ] Build Gradio app
-- [ ] Add 3D visualization
+- [ ] Model evaluation & comparison
+
+**Phase 3: Visualization** 🚧
+- [ ] Interactive Plotly dashboards
+- [ ] 3D solar system visualization
+- [ ] Temporal heatmaps
+- [ ] Risk distribution charts
+
+**Phase 4: Application** 📅
+- [ ] Build Gradio web app (5 tabs)
 - [ ] Deploy to Hugging Face Spaces
+- [ ] Add real-time data updates
+- [ ] Mobile-responsive design
+
+**Phase 5: Content** 📝
 - [ ] Write Substack blog series
-- [ ] Survive until project completion
+- [ ] Create demo videos
+- [ ] Social media content
+- [ ] Community engagement
 
 ---
 
@@ -211,9 +309,16 @@ Just remember:
 
 ## 📚 Resources & References
 
+### Data Sources
 - [NASA CNEOS](https://cneos.jpl.nasa.gov/) - Center for Near-Earth Object Studies
 - [Sentry Risk Table](https://cneos.jpl.nasa.gov/sentry/) - Official impact risk list
 - [NeoWs API Docs](https://api.nasa.gov/) - NASA's asteroid database
+- [Close Approach Data API](https://ssd-api.jpl.nasa.gov/doc/cad.html) - Historical approaches
+
+### Dataset
+- [Kaggle Dataset](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset) - Download processed data here
+
+### Inspiration
 - [Don't Look Up (2021)](https://www.netflix.com/title/81252357) - Required viewing
 
 ---
@@ -221,6 +326,7 @@ Just remember:
 ## 🙏 Acknowledgments
 
 - **NASA JPL** - For tracking space rocks so we don't have to
+- **Kaggle Community** - For hosting our apocalypse data
 - **Coffee** - For keeping me awake during late-night coding
 - **Anxiety** - For motivating this entire project
 - **Adam McKay** - For the film that inspired this chaos
@@ -237,7 +343,9 @@ MIT License - Feel free to use this code. If an asteroid wipes us out, all bets 
 
 **Abdullah Hasan Dafa**
 - GitHub: [@hasandafa](https://github.com/hasandafa)
-- Project: [github.com/hasandafa/do-not-look-up](https://github.com/hasandafa/do-not-look-up)
+- Kaggle: [@hasandafa1201](https://www.kaggle.com/hasandafa1201)
+- Project Repo: [github.com/hasandafa/do-not-look-up](https://github.com/hasandafa/do-not-look-up)
+- Dataset: [Kaggle Dataset](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset)
 
 ---
 
@@ -251,6 +359,8 @@ MIT License - Feel free to use this code. If an asteroid wipes us out, all bets 
 
 ---
 
-Made with 💀 and Python | Data by NASA | Vibes by existential dread
+Made with 💀 and Python | Data by NASA | Available on Kaggle
+
+**[⬇️ Download Dataset](https://www.kaggle.com/datasets/hasandafa1201/nasa-asteroid-impact-dataset) | [📓 Explore Notebooks](./notebooks/) | [⭐ Star This Repo](https://github.com/hasandafa/do-not-look-up)**
 
 </div>
