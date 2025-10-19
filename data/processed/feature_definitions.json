@@ -1,0 +1,20 @@
+{
+  "original_features": {
+    "distance_au": "Distance from Earth in Astronomical Units",
+    "velocity_km_s": "Relative velocity in km/s",
+    "absolute_magnitude": "Brightness (H), inverse proxy for size",
+    "risk_score": "Custom risk score (0-1)",
+    "panic_level": "Human-readable panic level (0-10)"
+  },
+  "engineered_features": {
+    "orbit_type": "Classification: Atira/Aten/Apollo/Amor",
+    "velocity_category": "Slow/Medium/Fast/Extreme",
+    "distance_category": "Extremely_Close/Close/Moderate/Far",
+    "risk_tier": "Low/Medium/High/Critical",
+    "combined_threat": "Distance \u00d7 Velocity interaction term",
+    "log_distance": "Log-transformed distance (for ML)",
+    "log_velocity": "Log-transformed velocity (for ML)",
+    "is_near_future": "Approaches within next 365 days",
+    "has_sentry_data": "Boolean: enriched with Sentry data"
+  }
+}
