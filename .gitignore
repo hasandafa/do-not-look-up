@@ -70,6 +70,7 @@ data/visualizations/*.png
 data/raw/*.json
 data/raw/*.csv
 data/raw/*.parquet
+!data/raw/.gitkeep
 
 # Raw data in notebooks (keep processed results, but ignore raw inputs)
 notebooks/data/
@@ -86,12 +87,14 @@ data/processed/*.csv
 data/processed/*.parquet
 data/processed/*.pkl
 data/processed/*.json
+!data/processed/.gitkeep
 
 # Model files (usually too big)
 data/models/*.pkl
 data/models/*.h5
 data/models/*.joblib
 *.model
+!data/models/.gitkeep
 
 # Keep README files in data folders
 !data/**/README.md

@@ -1,0 +1,73 @@
+{
+  "created_date": "2025-10-19 19:35:57.255993",
+  "models": {
+    "panic_classifier": {
+      "algorithm": "RandomForestClassifier",
+      "accuracy": 0.9691247338339124,
+      "f1_macro": 0.9431458272664747,
+      "features": [
+        "distance_au",
+        "velocity_km_s",
+        "absolute_magnitude",
+        "log_distance",
+        "log_velocity",
+        "combined_threat",
+        "year_normalized",
+        "days_from_today",
+        "orbit_type_encoded",
+        "velocity_category_encoded",
+        "distance_category_encoded",
+        "approach_season_encoded",
+        "is_weekend_approach",
+        "is_near_future",
+        "has_sentry_data"
+      ],
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "impact_regressor": {
+      "algorithm": "XGBRegressor",
+      "r2_score": 0.9449843384973444,
+      "rmse": 0.0012333105919387958,
+      "features": [
+        "distance_au",
+        "velocity_km_s",
+        "absolute_magnitude",
+        "log_distance",
+        "log_velocity",
+        "combined_threat",
+        "year_normalized",
+        "days_from_today",
+        "orbit_type_encoded",
+        "velocity_category_encoded",
+        "distance_category_encoded",
+        "approach_season_encoded",
+        "is_weekend_approach",
+        "is_near_future",
+        "has_sentry_data"
+      ],
+      "data_subset": "Sentry-listed only"
+    },
+    "worry_calculator": {
+      "algorithm": "Rule-based",
+      "type": "Aggregate scoring system",
+      "horizons_tested": [
+        7,
+        30,
+        90,
+        365
+      ]
+    }
+  }
+}
