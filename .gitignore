@@ -62,6 +62,11 @@ jupyter_notebook_config.py
 # Data Files (too large for git)
 # ============================================
 # Raw data from APIs
+image-*.png
+image.png
+data/visualizations/
+data/visualizations/*.html
+data/visualizations/*.png
 data/raw/*.json
 data/raw/*.csv
 data/raw/*.parquet
@@ -80,6 +85,7 @@ notebooks/data/raw/*.parquet
 data/processed/*.csv
 data/processed/*.parquet
 data/processed/*.pkl
+data/processed/*.json
 
 # Model files (usually too big)
 data/models/*.pkl
